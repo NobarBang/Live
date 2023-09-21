@@ -1,4 +1,0 @@
-AuthType Basic
-AuthName "Password Protected Area"
-AuthUserFile /NobarBang/Live/.htpassword
-Require valid-user
