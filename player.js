@@ -6,6 +6,19 @@ const logoImage = {
     light: 'https://telegra.ph/file/573ec10bf7b6cab25b499.png'
 };
 
+document.addEventListener("DOMContentLoaded", function() {
+    var video = document.getElementById('video');
+    var videoSrc = 'https://hls-origin278.showroom-cdn.com/liveedge/1eebc8742a25ec8d5e02a609580cb485573f19dba3fee8baa3da2855ef51fb50_all/chunklist.m3u8'; // Ganti dengan URL file m3u8 kamu
+
+    if (Hls.isSupported()) {
+        var hls = new Hls();
+        hls.loadSource(videoSrc);
+        hls.attachMedia(video);
+    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        video.src = videoSrc;
+    }
+});
+
 function playM3u8(url) {
     if (Hls.isSupported()) {
         video.volume = 1;
@@ -129,5 +142,5 @@ if (preferredMode === 'dark') {
     document.getElementById('mode-switch').classList.add('btn-dark');
     document.getElementById('mode-switch').innerHTML = '<i class="fas fa-sun"></i>';
     document.getElementById('links').classList.add('btn-dark');
-    document.getElementById('logo').src = 'https://telegra.ph/file/963f9a49015a2023558f9.png';
+    document.getElementById('logo').src = 'https://telegra.ph/file/4380bb74b9faa4bc3d27b.png';
 }
