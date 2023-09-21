@@ -19,52 +19,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-function playM3u8(url) {
-    if (Hls.isSupported()) {
-        video.volume = 1;
-        const hls = new Hls();
-        const m3u8Url = decodeURIComponent(url)
-        hls.loadSource(m3u8Url);
-        hls.currentLevel = -1;
-        hls.loadLevel = -1;
-        hls.attachMedia(video);
-        hls.on(Hls.Events.MANIFEST_PARSED, function () {
-            const levels = hls.levels;
-            qualityList.innerHTML = '';
-
-            const liDark = document.createElement('li');
-            liDark.style.listStyle = 'none';
-            qualityList.appendChild(liDark);
-
-            if(levels.length > 1){
-                for (let i = 0; i < levels.length; i++) {
-                    const level = levels[i];
-                    const listItem = document.createElement('li');
-                    const levelBtn = document.createElement('button');
-                    levelBtn.classList.add('btn', 'btn-primary');
-                    levelBtn.textContent = level.height + 'p';
-                    levelBtn.value = i;
-                    listItem.style.listStyle = 'none';
-                    listItem.appendChild(levelBtn);
-                    qualityList.appendChild(listItem);
-                    levelBtn.addEventListener('click', function () {
-                        hls.currentLevel = parseInt(this.value);
-                    });
-                }
-            }
-            video.play();
-        });
-        //document.title = "Nobar Bang - " + url;
-    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-        video.src = url;
-        video.addEventListener('canplay', function () {
-            video.play();
-        });
-        video.volume = 1;
-        //document.title = "Nobar Bang - " + url;
-    }
-}
-
 function initialize() {
     const modeSwitch = document.getElementById('mode-switch');
     const logo = document.getElementById('logo');
