@@ -1,4 +1,4 @@
 AuthType Basic
 AuthName "Password Protected Area"
-AuthUserFile /NobarBang/Live/blob/main/.htpassword
+AuthUserFile /NobarBang/Live/.htpassword
 Require valid-user
