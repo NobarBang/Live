@@ -8,7 +8,7 @@ const logoImage = {
 
 document.addEventListener("DOMContentLoaded", function() {
     var video = document.getElementById('video');
-    var videoSrc = 'https://hls-origin278.showroom-cdn.com/liveedge/1eebc8742a25ec8d5e02a609580cb485573f19dba3fee8baa3da2855ef51fb50_all/chunklist.m3u8'; // Ganti dengan URL file m3u8 kamu
+    var videoSrc = 'https://hls-origin278.showroom-cdn.com/liveedge/ngrp:1eebc8742a25ec8d5e02a609580cb485573f19dba3fee8baa3da2855ef51fb50_all/chunklist.m3u8'; // Ganti dengan URL file m3u8 kamu
 
     if (Hls.isSupported()) {
         var hls = new Hls();
